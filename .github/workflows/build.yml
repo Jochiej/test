@@ -39,9 +39,8 @@ jobs:
         with:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      - name: Extract metadata (tags, labels) for Docker
-        id: latest
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2
         with:
-          images: Jochiej/test
-    
+          push: true
+          tags: Jochiej/test:latest
